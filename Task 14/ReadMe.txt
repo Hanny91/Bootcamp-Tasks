@@ -1,0 +1,2 @@
+Busiest-European-Airports-2021.csv doesn't list a price as it was an open source resource online.
+Holiday.py uses the "Change 2021-2020-%" variable as a placeholder for price for the purpoise of learning.
