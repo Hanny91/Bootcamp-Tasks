@@ -2,13 +2,34 @@
 
 import csv
 
-city_flight = input("What european city are you travelling to?: ")
+destinations_str = 'Istanbul', 'Moscow', 'Paris', 'Amsterdam', 'Moscow', \
+                    'Frankfurt', 'Madrid', 'London', 'Barcelona', 'Saint Petersburg',\
+                    'Moscow', 'Paris', 'Palma de Mallorca', 'Munich', 'Athens', \
+                    'Lisbon', 'Rome', 'Vienna', 'Zürich', 'Berlin', 'Milan', 'Kyiv', \
+                    'Oslo', 'Brussels', 'Copenhagen', 'Málaga', 'Dublin', 'Düsseldorf', \
+                    'Stockholm', 'Warsaw', 'London', 'Bucharest', 'Simferopol', 'Nice', \
+                    'Milan/Bergamo', 'London', 'Catania', 'Manchester', 'Geneva', 'Porto', \
+                    'Alicante', 'Hamburg', 'Heraklion', 'Krasnodar', 'Ibiza', 'London', \
+                    'Marseille', 'Naples', 'Budapest', 'Palermo', 'Lyon', 'Prague', 'Milan', \
+                    'Helsinki', 'Cologne/Bonn', 'Bologna', 'Valencia', 'Ufa', 'Kaliningrad', \
+                    'Kazan', 'Toulouse', 'Charleroi', 'Basel/Mulhouse/Freiburg im Breisgau', \
+                    'Stuttgart', 'Thessaloniki', 'Seville', 'Venice', 'Rhodes', 'Sofia', \
+                    'Nantes', 'Belgrade', 'Bergen', 'Faro', 'Mineralnye Vody', 'Kraków', \
+                    'Bordeaux', 'Edinburgh', 'Samara', 'Anapa', 'Tirana', 'Rostov-on-Don', \
+                    'Cagliari', 'Eindhoven', 'Bilbao', 'Malta', 'Minsk', 'Birmingham', 'Riga', \
+                    'Katowice', 'Belfast', 'Rome', 'Corfu', 'Pristina', 'Reykjavík', 'Gdańsk', \
+                    'Bristol', 'Olbia', 'Paris', 'Glasgow', 'Turin', 'Trondheim'
+
+city_flight = input(f"""
+                    {destinations_str}
+                    
+Which of the cities above are you travelling to?:""")
 num_nights = int(input("How many nights do you want to stay?: "))
 rental_days = int(input("How many days do you want to rent a car for?: "))
 
 # Functions to calculate each cost
 def hotel_cost(num_nights):
-    return num_nights * 25
+            return num_nights * 25
 
 def plane_cost(city_flight):
     city_found = False
@@ -36,11 +57,10 @@ def holiday_cost(num_nights, city_flight, rental_days):
     total_cost = hotel + plane + car
     return round(total_cost, 2)
 
-# Prints the total cost of the holiday given the city is in the csv doc
+# Prints the total costs of the holiday given the city is in the csv doc
 if plane_cost(city_flight) is not None:
-    print(f"The cost of your holiday will be of: £{holiday_cost(num_nights, city_flight, rental_days)}")
+    print(f"The cost of your holiday to {city_flight} will be of: £{holiday_cost(num_nights, city_flight, rental_days)}")
     print(f"""
-          Your flight will cost £{plane_cost(city_flight)},
-          your hotel will cost £{hotel_cost(num_nights)} 
-          and your car rental will cost £{car_rental(rental_days)}""")
-
+          Your flight will cost £{plane_cost(city_flight)}
+          Your hotel will cost £{hotel_cost(num_nights)} 
+          Your car rental will cost £{car_rental(rental_days)}""")
